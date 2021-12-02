@@ -1,0 +1,93 @@
+﻿@model WE_Asgn_3.Models.Mobile
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=deivce-width" />
+    <link rel="stylesheet" href="~/Bootstrap/bootstrap.css" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <br /><br /><hr />
+        @using (Html.BeginForm())
+        {
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(x => x.Imei, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.Imei, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Imei, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.OprSys.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.OprSys.Name, (List<SelectListItem>)ViewBag.osList)
+                @Html.ValidationMessageFor(x => x.OprSys.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.ReleaseDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.ReleaseDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.Color, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Color, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.GramWeight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.GramWeight, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.GramWeight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.GbRam, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.GbRam, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.GbRam, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ModelNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.ModelNo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.ModelNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-dark" />
+
+            </div>
+        </div>
+    </div>
+
+
+        }
+        <p>@ViewBag.successMsg</p>
+        <hr />
+        @Html.ActionLink("Main", "Index", "Mobile", null, new { @class = "btn btn-dark", @role = "button" })
+
+    </div>
+    <br />
+</body>
+</html>

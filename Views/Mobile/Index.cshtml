@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WE_Asgn_3.Models.Mobile>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Bootstrap/bootstrap.css" type="text/css" />
+</head>
+<body>
+    <br />
+    <div class="container">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">IMEI</th>
+                    <th scope="col">OS</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">COLOR</th>
+                    <th scope="col">WEIGHT(gm)</th>
+                    <th scope="col">MODEL NO.</th>
+                    <th scope="col">RAM(gb)</th>
+                    <th scope="col">PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count() > 0)
+                {
+                    foreach (var mob in Model)
+                    {
+                <tr>
+                    <td scope="row">@mob.Imei</td>
+                    <td>@mob.OprSys.Name</td>
+                    <td>@mob.ShortDate</td>
+                    <td>@mob.Color</td>
+                    <td>@mob.GramWeight</td>
+                    <td>@mob.ModelNo</td>
+                    <td>@mob.GbRam</td>
+                    <td>@mob.Price</td>
+                </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+        @Html.ActionLink("Add Mobile", "AddMobile", "Mobile", null, new { @class = "btn btn-dark", @role = "button" })
+    </div>
+    <br />
+</body>
+</html>
